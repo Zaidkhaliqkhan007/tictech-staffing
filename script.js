@@ -1,0 +1,1 @@
+document.querySelectorAll('form[data-demo]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();alert('Thank you. This demo form is ready to connect to email, CRM, or a backend login system.')}));
