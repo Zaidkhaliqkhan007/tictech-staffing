@@ -48,3 +48,29 @@ AI Chat Widget:
 Business Hours Display:
 - Monday-Friday, 9:30 AM-5:00 PM EST.
 - Closed Saturday, Sunday, and U.S. public holidays.
+
+
+SUBMIT PROFILE / RESUME EMAIL SETUP
+-----------------------------------
+The public button now says Submit Profile.
+Candidate form fields are:
+- First Name
+- Middle Name (type N/A if none)
+- Last Name
+- Phone Number
+- City
+- State
+- Email Address
+- Resume Upload (PDF, DOC, DOCX)
+
+To receive submissions instantly at info@tictechstaffing.com:
+1. Log in at https://formspree.io using info@tictechstaffing.com.
+2. Create a new form named TicTech Submit Profile.
+3. Make sure file uploads are enabled/allowed in your Formspree plan.
+4. Copy the form endpoint URL, for example https://formspree.io/f/abcdwxyz.
+5. Open candidate.js.
+6. Replace PASTE_YOUR_FORMSPREE_ENDPOINT with that URL.
+7. Upload candidate.js back to GitHub and commit.
+8. Test the Submit Profile form with a PDF resume.
+
+Important: GitHub Pages alone cannot email resumes. Formspree or another backend is required for real-time email delivery and file attachment delivery.
