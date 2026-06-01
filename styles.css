@@ -10,3 +10,21 @@
 .miniCards div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:18px;color:white}
 .miniCards p{color:rgba(255,255,255,.78);margin-bottom:0}
 @media(max-width:900px){.miniCards{grid-template-columns:1fr}.submitHero h1{font-size:42px!important}}
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.contactLinks p {
+  margin: 0;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+
+.contactLinks a {
+  color: #ffffff;
+  font-weight: 600;
+}
