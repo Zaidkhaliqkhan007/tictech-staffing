@@ -1,60 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Submit Profile | TicTech Staffing</title>
-<meta name="description" content="Submit your resume and professional profile to TicTech Staffing for nationwide IT recruiting opportunities.">
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="tictech-logo.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Submit Your Profile | TicTech Staffing</title>
+  <meta name="description" content="Submit your professional profile and resume to TicTech Staffing.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<header class="header">
-  <nav class="nav">
-    <a class="brand" href="index.html"><img src="tictech-logo.png" alt="TicTech Staffing"></a>
-    <button id="menuBtn">Menu</button>
-    <div id="navlinks" class="navlinks">
-      <a href="index.html#about">About</a>
-      <a href="index.html#roles">Specializations</a>
-      <a href="index.html#jobs">Jobs</a>
-      <a href="index.html#contact">Contact</a>
-      <a class="cta" href="candidate.html">Submit Profile</a>
-    </div>
-  </nav>
-</header>
-<main>
-<section class="section darkSec submitHero" style="min-height:86vh">
-  <div class="container two">
-    <div>
-      <p class="eyebrow">Submit Profile</p>
-      <h1 style="font-size:58px;line-height:1;margin:10px 0">Submit your profile to TicTech Staffing.</h1>
-      <p class="lead">Upload your resume for IT Support, Desktop Engineering, Systems Administration, Systems Engineering, DevOps, Cloud, Cybersecurity, Network, and Infrastructure roles across the United States.</p>
-      <div class="cards miniCards" style="margin-top:28px">
-        <div><b>Nationwide Recruiting</b><p>We review profiles for roles across the U.S.</p></div>
-        <div><b>Resume Review</b><p>PDF and Word resumes are accepted.</p></div>
-        <div><b>Recruiter Follow-Up</b><p>Qualified candidates may be contacted by TicTech Staffing.</p></div>
+<body class="candidate-body">
+  <header class="site-header scrolled">
+    <nav class="nav shell">
+      <a class="brand" href="index.html"><img src="assets/tictech-logo.png" alt="TicTech Staffing"></a>
+      <a class="button button-small nav-cta" href="index.html">Back to Website</a>
+    </nav>
+  </header>
+
+  <main class="candidate-main">
+    <section class="page-hero">
+      <div class="shell">
+        <p class="eyebrow">Talent network</p>
+        <h1>Submit your profile.</h1>
+        <p>Share your background and resume for consideration for current and future technology opportunities.</p>
       </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="shell candidate-layout">
+        <aside class="candidate-side">
+          <p class="eyebrow dark">TicTech Staffing</p>
+          <h2>One profile. Nationwide opportunity access.</h2>
+          <ul>
+            <li>Technology-focused recruiting</li>
+            <li>Contract, contract-to-hire, and direct-hire opportunities</li>
+            <li>PDF and Microsoft Word resumes accepted</li>
+            <li>Your submission is stored securely for recruiting review</li>
+          </ul>
+          <p><strong>Questions?</strong><br><a class="text-link" href="mailto:info@tictechstaffing.com">info@tictechstaffing.com</a></p>
+        </aside>
+
+        <div class="candidate-card">
+          <form class="candidate-form" id="candidateForm">
+            <div class="form-grid two">
+              <label>First Name<input name="firstName" required autocomplete="given-name"></label>
+              <label>Middle Name<input name="middleName" placeholder="Enter N/A if not applicable" required autocomplete="additional-name"></label>
+            </div>
+            <div class="form-grid two">
+              <label>Last Name<input name="lastName" required autocomplete="family-name"></label>
+              <label>Phone Number<input name="phone" type="tel" required autocomplete="tel"></label>
+            </div>
+            <div class="form-grid two">
+              <label>Location (City, State)<input name="location" required placeholder="Example: New York, NY"></label>
+              <label>Email Address<input name="email" type="email" required autocomplete="email"></label>
+            </div>
+            <label>Primary Role or Specialty<input name="role" required placeholder="Example: Systems Administrator"></label>
+            <label>LinkedIn Profile (optional)<input name="linkedin" type="url" placeholder="https://linkedin.com/in/..."></label>
+            <label>Upload Resume
+              <input name="resume" id="resume" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+            </label>
+            <p class="file-note">Maximum file size: 10 MB. Accepted: PDF, DOC, DOCX.</p>
+            <label>Additional Information (optional)<textarea name="notes" rows="5" maxlength="1200"></textarea></label>
+            <label><span><input name="consent" type="checkbox" required> I authorize TicTech Staffing to review and retain my information for recruiting purposes.</span></label>
+            <input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="button button-dark" type="submit" id="candidateSubmit">Submit Profile</button>
+            <p class="form-message dark-message" id="candidateMessage" role="status"></p>
+          </form>
+          <div class="candidate-success" id="candidateSuccess">
+            <strong>Profile submitted successfully.</strong>
+            <p>Thank you. TicTech Staffing will contact you when there is an aligned opportunity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-layout">
+      <img src="assets/tictech-logo.png" alt="TicTech Staffing">
+      <div class="footer-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+      <p>© 2020 TicTech Staffing.</p>
     </div>
-    <form class="form profileForm" id="candidateForm" enctype="multipart/form-data">
-      <h2 style="margin-top:0">Candidate Profile Form</h2>
-      <div class="grid2"><input name="firstName" placeholder="First Name *" required><input name="middleName" placeholder="Middle Name (type N/A if none)" required></div>
-      <input name="lastName" placeholder="Last Name *" required>
-      <input name="phone" placeholder="Phone Number *" required>
-      <div class="grid2"><input name="city" placeholder="City *" required><input name="state" placeholder="State *" required></div>
-      <input type="email" name="email" placeholder="Email Address *" required>
-      <label class="fileLabel">Upload Resume (PDF or Word File) *</label>
-      <input class="fileInput" type="file" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
-      <input type="hidden" name="_subject" value="New Candidate Profile Submitted - TicTech Staffing">
-      <input type="hidden" name="_replyto" value="">
-      <button class="btn" type="submit">Submit Profile</button>
-      <p id="candidateMsg"></p>
-      <p class="formNote">Your information will be sent securely to TicTech Staffing at info@tictechstaffing.com.</p>
-    </form>
-  </div>
-</section>
-</main>
-<footer><img src="tictech-logo.png" alt="TicTech Staffing"><p>© 2020 TicTech Staffing. IT Staffing & Technology Recruitment</p></footer>
-<script>const m=document.getElementById('menuBtn'),n=document.getElementById('navlinks'); if(m&&n)m.onclick=()=>n.classList.toggle('open');</script>
-<script type="module" src="candidate.js"></script>
+  </footer>
+  <script type="module" src="candidate.js"></script>
 </body>
 </html>

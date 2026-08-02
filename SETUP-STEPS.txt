@@ -1,0 +1,38 @@
+TICTECH STAFFING — PRO MAX V2 SETUP
+
+PUBLIC WEBSITE
+https://tictechstaffing.com
+
+PRIVATE ADMIN PORTAL
+https://tictechstaffing.com/admin.html
+
+FILES
+Upload every file and the entire assets folder to the ROOT of the GitHub repository.
+
+FIREBASE
+1. Authentication > Sign-in method > Email/Password > Enabled.
+2. Authentication > Users > Add info@tictechstaffing.com.
+3. Firestore Database > Create database.
+4. Firestore Database > Rules > replace with firestore.rules > Publish.
+5. Storage > Get started.
+6. Storage > Rules > replace with storage.rules > Publish.
+7. Authentication > Settings > Authorized domains:
+   - tictechstaffing.com
+   - www.tictechstaffing.com
+   - zaidkhaliqkhan007.github.io
+
+FORMSPREE EMAIL NOTIFICATIONS
+1. Create one Formspree form connected to info@tictechstaffing.com.
+2. Copy its endpoint.
+3. Open firebase-config.js.
+4. Replace https://formspree.io/f/YOUR_FORM_ID with the real endpoint.
+
+GITHUB PAGES
+Settings > Pages > Deploy from a branch > main > /(root) > Save.
+
+TEST
+1. Open the website in a private/incognito window.
+2. Submit a candidate profile.
+3. Log into admin.html and confirm the candidate appears.
+4. Post a test job and confirm it appears in the Jobs section.
+5. Submit and approve five 4–5 star reviews to activate the public review panel.
