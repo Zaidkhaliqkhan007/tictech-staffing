@@ -1,0 +1,20 @@
+TICTECH STAFFING — NEON V3
+
+This version replaces the previous V2 files.
+
+UPLOAD
+1. Open the tictech-staffing GitHub repository on the main branch.
+2. Add file > Upload files.
+3. Upload every file and the complete assets folder from this package.
+4. Commit message: Deploy TicTech Staffing Neon V3.
+5. Wait for GitHub Pages deployment to show a green check.
+6. Open https://tictechstaffing.com/?v=neon3 and hard refresh.
+
+FIREBASE
+1. Publish firestore.rules under Firestore Database > Rules.
+2. Publish storage.rules under Storage > Rules.
+3. Confirm info@tictechstaffing.com exists under Authentication > Users.
+4. Add tictechstaffing.com and www.tictechstaffing.com under Authentication > Settings > Authorized domains.
+
+FORMSPREE
+Open firebase-config.js and replace YOUR_FORM_ID when ready.

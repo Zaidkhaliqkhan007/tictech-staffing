@@ -1,80 +1,20 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
-  <title>Admin Dashboard | TicTech Staffing</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Admin Dashboard | TicTech Staffing</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"></head>
 <body class="admin-body">
-  <main class="admin-main">
-    <section class="admin-login" id="loginBox">
-      <div class="login-card">
-        <img src="assets/tictech-logo.png" alt="TicTech Staffing">
-        <h1>Admin Dashboard</h1>
-        <p>Authorized TicTech Staffing access only.</p>
-        <input id="adminEmail" type="email" placeholder="Admin email" autocomplete="username">
-        <input id="adminPass" type="password" placeholder="Password" autocomplete="current-password">
-        <button class="button" id="loginBtn" type="button">Login</button>
-        <p class="form-message dark-message" id="loginMessage"></p>
-      </div>
-    </section>
-
-    <section class="admin-dashboard" id="dashboard">
-      <div class="admin-shell">
-        <div class="admin-top">
-          <img src="assets/tictech-logo.png" alt="TicTech Staffing">
-          <div>
-            <strong id="adminIdentity"></strong>
-            <button class="mini-button danger" id="logoutBtn" type="button">Sign Out</button>
-          </div>
-        </div>
-
-        <div class="admin-grid">
-          <div class="admin-card">
-            <h2>Post a Job</h2>
-            <form class="admin-form" id="jobForm">
-              <label>Job Title<input name="title" required></label>
-              <div class="form-grid two">
-                <label>Location<input name="location" required placeholder="New York, NY / Remote"></label>
-                <label>Job Type
-                  <select name="type" required>
-                    <option>Contract</option>
-                    <option>Contract-to-Hire</option>
-                    <option>Full-Time</option>
-                  </select>
-                </label>
-              </div>
-              <label>Salary or Rate<input name="salary" placeholder="$100,000–$125,000 or $55/hr"></label>
-              <label>Skills<input name="skills" placeholder="Linux, AWS, Terraform"></label>
-              <label>Short Summary<textarea name="summary" rows="5" required maxlength="800"></textarea></label>
-              <label>Apply URL<input name="applyUrl" type="url" placeholder="Leave blank to use Submit Profile"></label>
-              <button class="button button-dark" type="submit">Publish Job</button>
-              <p class="form-message dark-message" id="jobMessage"></p>
-            </form>
-          </div>
-
-          <div class="admin-card">
-            <h2>Live Jobs</h2>
-            <div class="admin-list" id="adminJobs">Loading…</div>
-          </div>
-        </div>
-
-        <div class="admin-card" style="margin-top:18px">
-          <div class="data-tabs">
-            <button class="active" type="button" data-tab="candidates">Candidates</button>
-            <button type="button" data-tab="employers">Employer Requests</button>
-            <button type="button" data-tab="reviews">Review Moderation</button>
-          </div>
-          <div class="tab-panel active" id="tab-candidates"><div class="admin-list" id="candidateList">Loading…</div></div>
-          <div class="tab-panel" id="tab-employers"><div class="admin-list" id="employerList">Loading…</div></div>
-          <div class="tab-panel" id="tab-reviews"><div class="admin-list" id="reviewList">Loading…</div></div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <script type="module" src="admin.js"></script>
-</body>
-</html>
+<main>
+  <section class="admin-login" id="loginBox"><div class="admin-login-card"><img src="assets/tictech-logo.png" alt="TicTech Staffing"><h1>Admin Dashboard</h1><p>Authorized access only.</p><input id="adminEmail" type="email" placeholder="Admin email"><input id="adminPass" type="password" placeholder="Password"><button class="button" id="loginBtn" type="button">Login</button><p id="loginMessage" class="form-message"></p></div></section>
+  <section class="admin-dashboard" id="dashboard">
+    <aside class="admin-sidebar"><img src="assets/tictech-logo.png" alt="TicTech Staffing"><nav><button class="active" data-admin-tab="overview">Dashboard</button><button data-admin-tab="jobs">Job Postings</button><button data-admin-tab="candidates">Candidates</button><button data-admin-tab="employers">Employer Requests</button><button data-admin-tab="reviews">Reviews</button></nav><button class="sidebar-logout" id="logoutBtn">Sign Out</button></aside>
+    <div class="admin-content">
+      <header class="admin-topbar"><div><p>Welcome back</p><h1>TicTech Staffing Admin</h1></div><strong id="adminIdentity"></strong></header>
+      <section class="admin-tab active" id="admin-overview"><div class="admin-stat-grid"><div><span>Active Jobs</span><strong id="statJobs">0</strong></div><div><span>Candidates</span><strong id="statCandidates">0</strong></div><div><span>Employer Requests</span><strong id="statEmployers">0</strong></div><div><span>Pending Reviews</span><strong id="statReviews">0</strong></div></div><div class="admin-panel"><h2>Recent Activity</h2><div id="recentActivity">Loading…</div></div></section>
+      <section class="admin-tab" id="admin-jobs"><div class="admin-two-col"><div class="admin-panel"><h2>Post a Job</h2><form id="jobForm" class="admin-form"><label>Job Title<input name="title" required></label><div class="form-grid two"><label>Location<input name="location" required></label><label>Job Type<select name="type"><option>Contract</option><option>Contract-to-Hire</option><option>Full-Time</option></select></label></div><label>Salary or Rate<input name="salary"></label><label>Skills<input name="skills"></label><label>Summary<textarea name="summary" rows="5" required></textarea></label><label>Apply URL<input name="applyUrl" type="url"></label><button class="button" type="submit">Publish Job</button><p id="jobMessage" class="form-message"></p></form></div><div class="admin-panel"><h2>Live Jobs</h2><div id="adminJobs">Loading…</div></div></div></section>
+      <section class="admin-tab" id="admin-candidates"><div class="admin-panel"><h2>Candidate Profiles</h2><div id="candidateList">Loading…</div></div></section>
+      <section class="admin-tab" id="admin-employers"><div class="admin-panel"><h2>Employer Requests</h2><div id="employerList">Loading…</div></div></section>
+      <section class="admin-tab" id="admin-reviews"><div class="admin-panel"><h2>Review Moderation</h2><div id="reviewList">Loading…</div></div></section>
+    </div>
+  </section>
+</main>
+<script type="module" src="admin.js"></script>
+</body></html>

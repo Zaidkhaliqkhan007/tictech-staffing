@@ -8,9 +8,5 @@ export const firebaseConfig = {
   measurementId: "G-W0BT1NF1FW"
 };
 
-// Replace YOUR_FORM_ID after creating one Formspree form.
-// The same endpoint can notify info@tictechstaffing.com about candidates,
-// employer requests, reviews, and representative messages.
 export const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
-
 export const ADMIN_EMAIL = "info@tictechstaffing.com";

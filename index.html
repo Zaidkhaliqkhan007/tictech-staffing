@@ -3,332 +3,243 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>TicTech Staffing | Nationwide IT Recruitment</title>
-  <meta name="description" content="TicTech Staffing delivers nationwide IT staffing solutions for support, systems, cloud, DevOps, cybersecurity, network, broadcast IT, and infrastructure teams.">
-  <meta name="theme-color" content="#03102d">
+  <title>TicTech Staffing | Connecting Technology With Opportunity</title>
+  <meta name="description" content="TicTech Staffing delivers nationwide IT staffing solutions across support, systems, cloud, DevOps, cybersecurity, network, broadcast IT, and infrastructure.">
+  <meta name="theme-color" content="#02050d">
   <link rel="canonical" href="https://tictechstaffing.com/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <meta property="og:title" content="TicTech Staffing | Nationwide IT Recruitment">
-  <meta property="og:description" content="Delivering nationwide IT staffing solutions since 2020.">
-  <meta property="og:url" content="https://tictechstaffing.com/">
-  <meta property="og:type" content="website">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"EmploymentAgency",
-    "name":"TicTech Staffing",
-    "url":"https://tictechstaffing.com",
-    "logo":"https://tictechstaffing.com/assets/tictech-logo.png",
-    "email":"info@tictechstaffing.com",
-    "telephone":"+1-516-667-0017",
-    "foundingDate":"2020",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"2468 N Jerusalem Rd, Ste #14",
-      "addressLocality":"North Bellmore",
-      "addressRegion":"NY",
-      "postalCode":"11710",
-      "addressCountry":"US"
-    },
-    "areaServed":"United States"
-  }
-  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-  <header class="site-header" id="top">
+  <header class="header" id="top">
     <nav class="nav shell" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="TicTech Staffing home">
         <img src="assets/tictech-logo.png" alt="TicTech Staffing">
       </a>
-      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false">Menu</button>
       <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#roles">Roles</a>
-        <a href="#jobs">Jobs</a>
+        <a class="active" href="#top">Home</a>
+        <a href="jobs.html">Jobs</a>
         <a href="#employers">Employers</a>
-        <a href="#reviews">Reviews</a>
+        <a href="candidate.html">Candidates</a>
+        <a href="#services">Services</a>
+        <a href="#about">About Us</a>
         <a href="#contact">Contact</a>
       </div>
-      <a class="button button-small nav-cta" href="candidate.html">Submit Profile</a>
+      <a class="button button-small nav-cta" href="candidate.html">Get Started</a>
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero section-dark">
+    <section class="hero">
       <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="hero-aurora aurora-one" aria-hidden="true"></div>
+      <div class="hero-aurora aurora-two" aria-hidden="true"></div>
       <div class="shell hero-layout">
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span class="live-dot"></span> Nationwide technology recruitment</p>
-          <h1>High-caliber IT talent.<br><span>Built for what is next.</span></h1>
-          <p class="hero-lead">TicTech Staffing connects ambitious technology professionals with organizations building critical systems, modern platforms, and resilient infrastructure.</p>
-          <p class="since-line">Delivering nationwide IT staffing solutions since 2020</p>
+          <p class="pill">#1 Technology Staffing Focus</p>
+          <h1>Connecting<br><span>Technology</span><br>With Opportunity</h1>
+          <p class="hero-lead">We connect exceptional IT talent with innovative companies building the future of technology.</p>
+          <p class="since">Delivering nationwide IT staffing solutions since 2020</p>
           <div class="hero-actions">
-            <a class="button" href="candidate.html">Submit Your Profile</a>
-            <a class="button button-ghost" href="#employers">Request Talent</a>
-          </div>
-          <div class="hero-trust" aria-label="Service highlights">
-            <div><strong>Nationwide</strong><span>U.S. recruiting reach</span></div>
-            <div><strong>Focused</strong><span>Technology specialization</span></div>
-            <div><strong>Flexible</strong><span>Contract and direct hire</span></div>
+            <a class="button" href="jobs.html">Find Jobs</a>
+            <a class="button button-outline" href="#employers">Hire Talent</a>
           </div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Interactive technology network visualization">
-          <canvas id="networkCanvas"></canvas>
-          <div class="visual-orbit orbit-one"></div>
-          <div class="visual-orbit orbit-two"></div>
-          <div class="floating-card floating-card-a">
-            <span class="card-icon">◎</span>
-            <div><strong>Live Talent Network</strong><small>Nationwide reach</small></div>
-          </div>
-          <div class="floating-card floating-card-b">
-            <span class="card-icon">↗</span>
-            <div><strong>Role Alignment</strong><small>Skills-first matching</small></div>
-          </div>
-          <div class="floating-card floating-card-c">
-            <span class="card-icon">◈</span>
-            <div><strong>Technology Focus</strong><small>Specialized recruiting</small></div>
-          </div>
-          <div class="webgl-fallback" id="webglFallback">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
+        <div class="hero-stage reveal">
+          <canvas id="globeCanvas" aria-label="Animated global technology network"></canvas>
+          <div class="stage-core" aria-hidden="true"></div>
+
+          <article class="talent-chip chip-one">
+            <img src="assets/avatar-alex.svg" alt="">
+            <div><strong>Cloud Engineer</strong><span>Azure • AWS</span></div>
+          </article>
+          <article class="talent-chip chip-two">
+            <img src="assets/avatar-maya.svg" alt="">
+            <div><strong>Systems Engineer</strong><span>Linux • VMware</span></div>
+          </article>
+          <article class="talent-chip chip-three">
+            <img src="assets/avatar-david.svg" alt="">
+            <div><strong>DevOps Engineer</strong><span>Docker • CI/CD</span></div>
+          </article>
+          <article class="talent-chip chip-four">
+            <img src="assets/avatar-priya.svg" alt="">
+            <div><strong>Cybersecurity Analyst</strong><span>Security Operations</span></div>
+          </article>
         </div>
       </div>
-      <div class="scroll-cue" aria-hidden="true"><span></span>Explore</div>
-    </section>
 
-    <section class="signal-strip" aria-label="Technology areas">
-      <div class="signal-track">
-        <span>IT Support</span><span>Desktop Engineering</span><span>Systems Administration</span><span>Cloud</span><span>DevOps</span><span>Cybersecurity</span><span>Network</span><span>Broadcast IT</span><span>Infrastructure</span>
-        <span>IT Support</span><span>Desktop Engineering</span><span>Systems Administration</span><span>Cloud</span><span>DevOps</span><span>Cybersecurity</span><span>Network</span><span>Broadcast IT</span><span>Infrastructure</span>
+      <div class="shell metrics-bar reveal">
+        <div class="metric"><span class="metric-icon">◎</span><div><strong>50</strong><small>States Covered</small></div></div>
+        <div class="metric"><span class="metric-icon">◈</span><div><strong>9+</strong><small>Technology Disciplines</small></div></div>
+        <div class="metric"><span class="metric-icon">↗</span><div><strong>3</strong><small>Hiring Models</small></div></div>
+        <div class="metric"><span class="metric-icon">✦</span><div><strong>Since 2020</strong><small>Nationwide IT Staffing</small></div></div>
       </div>
     </section>
 
-    <section class="section section-light" id="about">
-      <div class="shell split-layout">
-        <div class="media-frame reveal">
-          <img src="assets/tictech-team.webp" alt="Technology recruitment meeting" loading="lazy" width="1600" height="1000">
-          <div class="media-shine" aria-hidden="true"></div>
-          <div class="media-label"><span>Nationwide</span> IT staffing and recruiting</div>
-        </div>
-        <div class="section-copy reveal">
-          <p class="eyebrow dark">About TicTech Staffing</p>
-          <h2>Recruiting built for technology teams that cannot stand still.</h2>
-          <p>We support companies seeking dependable technology professionals and candidates ready for meaningful career growth. Our approach combines focused sourcing, practical screening, clear communication, and responsive coordination.</p>
-          <div class="metric-grid">
-            <div class="metric"><strong data-count="9">0</strong><span>Core technology disciplines</span></div>
-            <div class="metric"><strong data-count="50">0</strong><span>States within our recruiting reach</span></div>
-            <div class="metric"><strong data-count="3">0</strong><span>Flexible hiring models</span></div>
-          </div>
-          <a class="text-link" href="#capabilities">Explore our capabilities <span>→</span></a>
-        </div>
+    <section class="logo-ribbon" aria-label="Technology ecosystem">
+      <div class="logo-track">
+        <span>MICROSOFT</span><span>AMAZON</span><span>GOOGLE</span><span>AWS</span><span>VMWARE</span><span>DELL</span><span>ORACLE</span><span>CISCO</span><span>NVIDIA</span>
+        <span>MICROSOFT</span><span>AMAZON</span><span>GOOGLE</span><span>AWS</span><span>VMWARE</span><span>DELL</span><span>ORACLE</span><span>CISCO</span><span>NVIDIA</span>
       </div>
     </section>
 
-    <section class="section section-ink" id="capabilities">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <p class="eyebrow">What we deliver</p>
-          <h2>Talent solutions engineered around your hiring goals.</h2>
-          <p>From urgent project support to long-term team growth, each search is aligned with the role, environment, and business outcome.</p>
+    <section class="section dark-section" id="about">
+      <div class="shell candidate-layout">
+        <div class="candidate-copy reveal">
+          <p class="eyebrow">For Candidates</p>
+          <h2>Your career.<br><span>Our priority.</span></h2>
+          <p>Discover technology opportunities, strengthen your professional presence, and stay connected to roles that align with your experience.</p>
+
+          <div class="benefit-list">
+            <div><span>01</span><div><strong>Personalized Role Matching</strong><p>Role-focused recruiting based on your skills, preferences, and goals.</p></div></div>
+            <div><span>02</span><div><strong>Career Growth</strong><p>Access contract, contract-to-hire, and direct-hire opportunities.</p></div></div>
+            <div><span>03</span><div><strong>Simple Application</strong><p>Submit one profile and resume for future aligned opportunities.</p></div></div>
+          </div>
+          <a class="button" href="candidate.html">Submit Profile</a>
         </div>
-        <div class="capability-grid">
-          <article class="capability-card reveal">
-            <span class="capability-number">01</span>
-            <div class="capability-icon">⌁</div>
-            <h3>Contract Staffing</h3>
-            <p>Skilled professionals for project delivery, coverage needs, and specialized technical work.</p>
-          </article>
-          <article class="capability-card reveal">
-            <span class="capability-number">02</span>
-            <div class="capability-icon">⇄</div>
-            <h3>Contract-to-Hire</h3>
-            <p>A flexible path for evaluating role alignment before making a long-term hiring decision.</p>
-          </article>
-          <article class="capability-card reveal">
-            <span class="capability-number">03</span>
-            <div class="capability-icon">◇</div>
-            <h3>Direct Hire</h3>
-            <p>Focused recruitment for permanent technology professionals across the United States.</p>
-          </article>
-          <article class="capability-card reveal">
-            <span class="capability-number">04</span>
-            <div class="capability-icon">⌾</div>
-            <h3>Targeted Sourcing</h3>
-            <p>Role-specific outreach built around technical requirements, location, availability, and team fit.</p>
-          </article>
+
+        <div class="operator-card reveal">
+          <img src="assets/tech-operator.svg" alt="Technology recruitment operator dashboard illustration" loading="lazy">
+          <div class="match-ring"><strong>95%</strong><span>Profile Alignment</span></div>
+          <div class="match-card">
+            <div class="avatar-stack">
+              <img src="assets/avatar-alex.svg" alt="">
+              <img src="assets/avatar-maya.svg" alt="">
+              <img src="assets/avatar-priya.svg" alt="">
+            </div>
+            <div><strong>Matches Found</strong><span>Aligned technology roles</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-light roles-section" id="roles">
+    <section class="section panel-section" id="services">
       <div class="shell">
         <div class="section-heading centered reveal">
-          <p class="eyebrow dark">Technology roles</p>
-          <h2>Specialized recruiting across modern IT.</h2>
-          <p>We recruit across support, systems, engineering, cloud, security, network, broadcast, and infrastructure disciplines.</p>
+          <p class="eyebrow">Our Services</p>
+          <h2>Technology staffing built around your hiring goals.</h2>
+          <p>Flexible recruiting solutions for project delivery, team growth, and specialized technical hiring.</p>
         </div>
-        <div class="role-cloud reveal">
-          <span>IT Support Specialist</span>
-          <span>Help Desk Analyst</span>
-          <span>Service Desk Analyst</span>
-          <span>Desktop Support Engineer</span>
-          <span>Desktop Engineer</span>
-          <span>Systems Administrator</span>
-          <span>Windows Systems Administrator</span>
-          <span>Linux Systems Administrator</span>
-          <span>Systems Engineer</span>
-          <span>Infrastructure Engineer</span>
-          <span>Network Engineer</span>
-          <span>Cloud Engineer</span>
-          <span>Azure Engineer</span>
-          <span>AWS Engineer</span>
-          <span>DevOps Engineer</span>
-          <span>Cybersecurity Analyst</span>
-          <span>Broadcast IT Engineer</span>
-          <span>Site Reliability Engineer</span>
+        <div class="service-grid">
+          <article class="neon-card reveal"><span>01</span><div class="neon-icon">⌁</div><h3>Contract Staffing</h3><p>Specialized professionals for urgent projects, coverage, and technical assignments.</p></article>
+          <article class="neon-card reveal"><span>02</span><div class="neon-icon">⇄</div><h3>Contract-to-Hire</h3><p>A flexible path to evaluate alignment before making a permanent hiring decision.</p></article>
+          <article class="neon-card reveal"><span>03</span><div class="neon-icon">◇</div><h3>Direct Hire</h3><p>Focused nationwide recruitment for permanent technology professionals.</p></article>
+          <article class="neon-card reveal"><span>04</span><div class="neon-icon">⌾</div><h3>Targeted Sourcing</h3><p>Search strategy aligned to skills, location, availability, and team needs.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section process-section">
-      <div class="process-beam" aria-hidden="true"></div>
       <div class="shell">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Our process</p>
-          <h2>A clear path from hiring need to aligned talent.</h2>
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">Our Process</p>
+          <h2>Simple. Transparent. Effective.</h2>
         </div>
-        <div class="process-grid">
-          <article class="process-step reveal"><span>01</span><h3>Discovery</h3><p>We clarify the role, environment, priorities, timeline, and success criteria.</p></article>
-          <article class="process-step reveal"><span>02</span><h3>Focused Search</h3><p>We source candidates whose experience aligns with the assignment.</p></article>
-          <article class="process-step reveal"><span>03</span><h3>Qualification</h3><p>We review technical background, communication, availability, and goals.</p></article>
-          <article class="process-step reveal"><span>04</span><h3>Introduction</h3><p>Qualified candidates are presented with clear, organized information.</p></article>
-          <article class="process-step reveal"><span>05</span><h3>Coordination</h3><p>We support scheduling, feedback, onboarding, and ongoing communication.</p></article>
+        <div class="process-line reveal">
+          <article><span>01</span><div class="process-icon">⌂</div><h3>Understand Needs</h3><p>We learn your goals, environment, timeline, and technical requirements.</p></article>
+          <article><span>02</span><div class="process-icon">◎</div><h3>Source Talent</h3><p>We identify technology professionals aligned with the role.</p></article>
+          <article><span>03</span><div class="process-icon">◉</div><h3>Screen &amp; Match</h3><p>We review experience, communication, availability, and goals.</p></article>
+          <article><span>04</span><div class="process-icon">✦</div><h3>Hire &amp; Support</h3><p>We coordinate interviews, onboarding, and ongoing communication.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section section-light" id="jobs">
+    <section class="section jobs-preview" id="jobs">
       <div class="shell">
         <div class="section-heading row-heading reveal">
           <div>
-            <p class="eyebrow dark">Live opportunities</p>
-            <h2>Current jobs posted by TicTech Staffing.</h2>
+            <p class="eyebrow">Live Opportunities</p>
+            <h2>Find your dream technology role.</h2>
           </div>
-          <a class="button button-dark" href="candidate.html">Join Our Talent Network</a>
+          <a class="button button-outline" href="jobs.html">View All Jobs</a>
         </div>
-        <div class="job-toolbar reveal">
-          <label class="search-box">
-            <span>⌕</span>
-            <input id="jobSearch" type="search" placeholder="Search title, skill, or location" autocomplete="off">
-          </label>
-          <select id="jobTypeFilter" aria-label="Filter by job type">
-            <option value="">All job types</option>
-            <option value="Contract">Contract</option>
-            <option value="Contract-to-Hire">Contract-to-Hire</option>
-            <option value="Full-Time">Full-Time</option>
-          </select>
+        <div class="job-search reveal">
+          <label><span>⌕</span><input id="homeJobSearch" placeholder="Job title, skill, keyword, or company"></label>
+          <label><span>⌖</span><input id="homeLocationSearch" placeholder="Location"></label>
+          <a class="button" href="jobs.html">Search Jobs</a>
         </div>
-        <div class="jobs-grid" id="jobsGrid">
-          <div class="jobs-state">Connecting to live opportunities…</div>
-        </div>
+        <div class="home-jobs" id="homeJobs"><div class="loading-card">Connecting to live opportunities…</div></div>
       </div>
     </section>
 
     <section class="section employer-section" id="employers">
-      <div class="shell employer-layout">
+      <div class="shell employer-grid">
         <div class="employer-copy reveal">
-          <p class="eyebrow">For employers</p>
+          <p class="eyebrow">For Employers</p>
           <h2>Build your next technology team with focus and speed.</h2>
           <p>Share your hiring need and TicTech Staffing will follow up during business hours.</p>
-          <ul class="check-list">
+          <ul>
             <li>Nationwide candidate sourcing</li>
             <li>Contract, contract-to-hire, and direct hire</li>
             <li>Technology-focused screening</li>
             <li>Clear communication throughout the search</li>
           </ul>
-          <div class="business-hours">
-            <strong>Business Hours</strong>
-            <span>Monday–Friday, 9:30 AM–5:00 PM EST</span>
-            <small>Closed weekends and U.S. public holidays.</small>
-          </div>
+          <div class="hours-card"><strong>Business Hours</strong><span>Monday–Friday, 9:30 AM–5:00 PM EST</span><small>Closed weekends and U.S. public holidays.</small></div>
         </div>
+
         <form class="glass-form reveal" id="employerForm">
           <h3>Request Talent</h3>
           <div class="form-grid two">
-            <label>Company<input name="company" required autocomplete="organization"></label>
-            <label>Your Name<input name="name" required autocomplete="name"></label>
+            <label>Company<input name="company" required></label>
+            <label>Your Name<input name="name" required></label>
           </div>
           <div class="form-grid two">
-            <label>Business Email<input type="email" name="email" required autocomplete="email"></label>
-            <label>Phone<input type="tel" name="phone" required autocomplete="tel"></label>
+            <label>Business Email<input type="email" name="email" required></label>
+            <label>Phone<input type="tel" name="phone" required></label>
           </div>
           <label>Role Needed<input name="role" required placeholder="Example: Systems Engineer"></label>
-          <label>Hiring Details<textarea name="details" required rows="5" placeholder="Location, hiring type, required skills, timeline, and any important details."></textarea></label>
-          <input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label>Hiring Details<textarea name="details" rows="5" required placeholder="Location, hiring type, skills, timeline, and important details."></textarea></label>
+          <input class="honeypot" name="website" tabindex="-1" autocomplete="off">
           <button class="button" type="submit">Submit Hiring Request</button>
-          <p class="form-message" id="employerMessage" role="status"></p>
+          <p class="form-message" id="employerMessage"></p>
         </form>
       </div>
     </section>
 
-    <section class="section section-light" id="reviews">
-      <div class="shell reviews-layout">
-        <div class="review-form-wrap reveal">
-          <p class="eyebrow dark">Client and candidate feedback</p>
-          <h2>Share your experience with TicTech Staffing.</h2>
-          <form class="review-form" id="reviewForm">
-            <fieldset class="star-field">
-              <legend>Your Rating</legend>
-              <div class="stars" id="stars" role="radiogroup" aria-label="Select rating">
-                <button type="button" data-rating="1" aria-label="1 star">★</button>
-                <button type="button" data-rating="2" aria-label="2 stars">★</button>
-                <button type="button" data-rating="3" aria-label="3 stars">★</button>
-                <button type="button" data-rating="4" aria-label="4 stars">★</button>
-                <button type="button" data-rating="5" aria-label="5 stars">★</button>
-              </div>
-            </fieldset>
-            <div class="form-grid two">
-              <label>First Name<input name="firstName" required></label>
-              <label>Last Name<input name="lastName" required></label>
-            </div>
-            <label>Email<input type="email" name="email" required></label>
-            <label>Phone Number<input type="tel" name="phone" required></label>
-            <label>Comment<textarea name="comment" rows="5" maxlength="700" required></textarea></label>
-            <input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <button class="button button-dark" type="submit">Submit Review</button>
-            <p class="form-message dark-message" id="reviewMessage" role="status"></p>
-          </form>
-        </div>
-        <div class="reviews-display reveal" id="reviewsDisplay" hidden>
-          <div class="reviews-head">
-            <div><span class="review-score">5.0</span><span class="review-stars">★★★★★</span></div>
-            <span id="reviewCount"></span>
+    <section class="section ai-section">
+      <div class="shell ai-layout reveal">
+        <div class="ai-copy">
+          <p class="eyebrow">TicTech AI Assistant</p>
+          <h2>Instant guidance for jobs, profiles, and support.</h2>
+          <p>The website assistant can surface live opportunities, explain profile submission, share business hours, and connect visitors to a representative.</p>
+          <div class="ai-actions">
+            <button type="button" data-open-assistant="jobs">Find Jobs</button>
+            <button type="button" data-open-assistant="profile">Profile Help</button>
+            <button type="button" data-open-assistant="representative">Representative</button>
           </div>
-          <div class="review-stack" id="reviewStack"></div>
+        </div>
+        <div class="ai-visual">
+          <div class="ai-orb">
+            <span class="ear left"></span><span class="ear right"></span>
+            <div class="ai-face"><i></i><i></i><b></b></div>
+          </div>
+          <div class="chat-preview">
+            <p>Hello! I’m your TicTech assistant. How can I help today?</p>
+            <p class="user-bubble">Show me current systems roles.</p>
+            <p>I can check the live jobs section and guide you to submit your profile.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section contact-section" id="contact">
       <div class="shell contact-layout">
-        <div class="contact-copy reveal">
-          <p class="eyebrow">Contact</p>
-          <h2>Nationwide IT recruiting across the United States.</h2>
-          <p>Connect with our team about talent, opportunities, contractor support, or general questions.</p>
+        <div class="reveal">
+          <p class="eyebrow">Get In Touch</p>
+          <h2>Let’s connect talent with opportunity.</h2>
+          <p>Contact TicTech Staffing about technology hiring, career opportunities, or contractor support.</p>
         </div>
-        <div class="contact-panel reveal">
-          <a href="mailto:info@tictechstaffing.com"><span>Email</span><strong>info@tictechstaffing.com</strong></a>
+        <div class="contact-grid reveal">
           <a href="tel:+15166670017"><span>Phone</span><strong>(516) 667-0017</strong></a>
+          <a href="mailto:info@tictechstaffing.com"><span>Email</span><strong>info@tictechstaffing.com</strong></a>
           <div><span>Address</span><strong>2468 N Jerusalem Rd, Ste #14<br>North Bellmore, NY 11710</strong></div>
           <div><span>Coverage</span><strong>Nationwide recruiting support across the U.S.</strong></div>
         </div>
@@ -336,40 +247,28 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="shell footer-layout">
       <img src="assets/tictech-logo.png" alt="TicTech Staffing">
-      <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
-        <a href="candidate.html">Submit Profile</a>
-      </div>
+      <div><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="candidate.html">Submit Profile</a></div>
       <p>© 2020 TicTech Staffing. IT Staffing &amp; Technology Recruitment.</p>
     </div>
   </footer>
 
-  <div class="assistant-widget" id="assistantWidget">
-    <button class="assistant-bubble" id="assistantBubble" type="button" aria-label="Open TicTech assistant">
-      <span class="assistant-pulse"></span>
-      <span>✦</span>
-    </button>
-    <section class="assistant-panel" id="assistantPanel" aria-live="polite" hidden>
-      <header>
-        <div><strong>TicTech Assistant</strong><small id="assistantStatus">Online support</small></div>
-        <button id="assistantClose" type="button" aria-label="Close assistant">×</button>
-      </header>
-      <div class="assistant-messages" id="assistantMessages">
-        <div class="assistant-message bot">Welcome to TicTech Staffing. How may I assist you?</div>
+  <div class="assistant-widget">
+    <button class="assistant-button" id="assistantButton" type="button" aria-label="Open TicTech assistant">✦</button>
+    <section class="assistant-panel" id="assistantPanel" hidden>
+      <header><div><strong>TicTech AI Assistant</strong><small id="assistantStatus">Online</small></div><button id="assistantClose" type="button">×</button></header>
+      <div class="assistant-body">
+        <div class="assistant-orb-mini"><span></span></div>
+        <div class="assistant-messages" id="assistantMessages"><p class="bot">Hello! How can I help you today?</p></div>
       </div>
       <div class="assistant-quick">
-        <button type="button" data-chat="jobs">Current jobs</button>
-        <button type="button" data-chat="profile">Profile help</button>
-        <button type="button" data-chat="representative">Representative</button>
+        <button data-chat="jobs" type="button">Find Jobs</button>
+        <button data-chat="profile" type="button">Profile Help</button>
+        <button data-chat="representative" type="button">Representative</button>
       </div>
-      <form class="assistant-form" id="assistantForm">
-        <input id="assistantInput" placeholder="Ask about jobs or account help…" autocomplete="off">
-        <button type="submit">Send</button>
-      </form>
+      <form id="assistantForm"><input id="assistantInput" placeholder="Type your message…"><button type="submit">Send</button></form>
     </section>
   </div>
 

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+<defs>
+  <radialGradient id="bg" cx=".5" cy=".3" r=".8"><stop stop-color="#25118a"/><stop offset=".55" stop-color="#07194e"/><stop offset="1" stop-color="#020712"/></radialGradient>
+  <linearGradient id="neon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2ad7ff"/><stop offset=".5" stop-color="#6b44ff"/><stop offset="1" stop-color="#ff4fd8"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="900" height="620" rx="38" fill="url(#bg)"/>
+<g opacity=".3" stroke="#55c8ff">
+  <path d="M0 500h900M0 530h900M0 560h900M0 590h900"/>
+  <path d="M80 400v220M170 400v220M260 400v220M350 400v220M440 400v220M530 400v220M620 400v220M710 400v220M800 400v220"/>
+</g>
+<g filter="url(#glow)" fill="none" stroke="url(#neon)" stroke-width="3">
+  <rect x="110" y="110" width="190" height="120" rx="18"/>
+  <rect x="335" y="65" width="220" height="135" rx="18"/>
+  <rect x="590" y="125" width="190" height="120" rx="18"/>
+  <rect x="570" y="300" width="230" height="120" rx="18"/>
+  <path d="M130 190l30-28 25 12 34-42 52 54M360 160l42-55 36 29 44-47 47 67M615 198l31-32 34 12 40-37 38 45"/>
+</g>
+<g>
+  <ellipse cx="445" cy="570" rx="180" ry="25" fill="#050815" opacity=".8"/>
+  <path d="M390 330c0-64 31-105 79-105 60 0 88 51 77 112-12 70-43 111-92 111-43 0-64-39-64-118z" fill="#161b37"/>
+  <ellipse cx="458" cy="250" rx="42" ry="52" fill="#bf7f5a"/>
+  <path d="M414 248c3-57 22-82 55-82 39 0 55 36 43 85-14-27-39-38-73-30-8 13-15 22-25 27z" fill="#10142a"/>
+  <path d="M365 560c9-94 42-145 97-145 56 0 94 51 103 145" fill="#11152d"/>
+  <path d="M300 545l130-150 57 30-93 145z" fill="#111a38" stroke="#614bff" stroke-width="3"/>
+  <rect x="313" y="438" width="160" height="96" rx="12" fill="#08102a" stroke="#27cfff" stroke-width="3"/>
+  <path d="M345 472h92M345 492h67" stroke="#28d8ff" stroke-width="6" stroke-linecap="round"/>
+</g>
+<g fill="#fff" font-family="Arial" font-size="18">
+  <text x="132" y="145">LIVE TALENT PIPELINE</text>
+  <text x="360" y="100">MATCHING SIGNAL</text>
+  <text x="615" y="160">CLOUD &amp; SYSTEMS</text>
+  <text x="595" y="335">ACTIVE OPPORTUNITIES</text>
+</g>
+</svg>

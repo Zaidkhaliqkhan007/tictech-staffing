@@ -1,19 +1,11 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
-    function isAdmin() {
-      return request.auth != null
-        && request.auth.token.email == "info@tictechstaffing.com";
-    }
-
+    function isAdmin() { return request.auth != null && request.auth.token.email == "info@tictechstaffing.com"; }
     match /resumes/{allPaths=**} {
       allow create: if request.resource.size < 10 * 1024 * 1024
-        && request.resource.contentType in [
-          "application/pdf",
-          "application/msword",
-          "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        ];
-      allow read, update, delete: if isAdmin();
+        && request.resource.contentType in ["application/pdf","application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+      allow read,update,delete: if isAdmin();
     }
   }
 }

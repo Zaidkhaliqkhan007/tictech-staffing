@@ -1,175 +1,20 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-import {
-  getFirestore, collection, addDoc, onSnapshot, query, orderBy, limit,
-  deleteDoc, doc, updateDoc, serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
-import { firebaseConfig, ADMIN_EMAIL } from "./firebase-config.js";
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
-const storage = getStorage(app);
-const $ = id => document.getElementById(id);
-const escapeHTML = (value = "") => String(value).replace(/[&<>"']/g, char => ({
-  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
-}[char]));
-let unsubscribers = [];
-
-$("loginBtn").addEventListener("click", async () => {
-  $("loginMessage").textContent = "Signing in…";
-  try {
-    const credential = await signInWithEmailAndPassword(auth, $("adminEmail").value.trim(), $("adminPass").value);
-    if (credential.user.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
-      await signOut(auth);
-      throw new Error("This account is not authorized.");
-    }
-  } catch (error) {
-    console.error(error);
-    $("loginMessage").textContent = error.message.replace("Firebase: ", "");
-  }
-});
-
-$("adminPass").addEventListener("keydown", event => {
-  if (event.key === "Enter") $("loginBtn").click();
-});
-$("logoutBtn").addEventListener("click", () => signOut(auth));
-
-onAuthStateChanged(auth, user => {
-  const authorized = user?.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase();
-  $("loginBox").style.display = authorized ? "none" : "grid";
-  $("dashboard").style.display = authorized ? "block" : "none";
-  $("adminIdentity").textContent = authorized ? user.email : "";
-  unsubscribers.forEach(unsubscribe => unsubscribe());
-  unsubscribers = [];
-  if (authorized) subscribeToData();
-});
-
-$("jobForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const values = Object.fromEntries(new FormData(form).entries());
-  $("jobMessage").textContent = "Publishing…";
-  try {
-    await addDoc(collection(db, "jobs"), {
-      title: values.title.trim(),
-      location: values.location.trim(),
-      type: values.type,
-      salary: values.salary.trim(),
-      skills: values.skills.trim(),
-      summary: values.summary.trim(),
-      applyUrl: values.applyUrl.trim() || "candidate.html",
-      createdAt: serverTimestamp()
-    });
-    form.reset();
-    $("jobMessage").textContent = "Job published successfully.";
-  } catch (error) {
-    console.error(error);
-    $("jobMessage").textContent = error.message;
-  }
-});
-
-function subscribeToData() {
-  unsubscribers.push(onSnapshot(
-    query(collection(db, "jobs"), orderBy("createdAt", "desc"), limit(100)),
-    snapshot => {
-      $("adminJobs").innerHTML = snapshot.empty ? "No jobs posted." : snapshot.docs.map(item => {
-        const job = item.data();
-        return `<article class="admin-item">
-          <div class="admin-item-top"><div><strong>${escapeHTML(job.title)}</strong><p>${escapeHTML(job.location)} • ${escapeHTML(job.type)}</p></div>
-          <button class="mini-button danger" data-delete-job="${item.id}">Delete</button></div>
-          <p>${escapeHTML(job.summary)}</p>
-        </article>`;
-      }).join("");
-      document.querySelectorAll("[data-delete-job]").forEach(button => button.addEventListener("click", async () => {
-        if (confirm("Delete this job?")) await deleteDoc(doc(db, "jobs", button.dataset.deleteJob));
-      }));
-    }
-  ));
-
-  unsubscribers.push(onSnapshot(
-    query(collection(db, "candidates"), orderBy("createdAt", "desc"), limit(100)),
-    snapshot => {
-      $("candidateList").innerHTML = snapshot.empty ? "No candidate submissions." : snapshot.docs.map(item => {
-        const person = item.data();
-        return `<article class="admin-item">
-          <div class="admin-item-top">
-            <div><strong>${escapeHTML(person.firstName)} ${escapeHTML(person.middleName)} ${escapeHTML(person.lastName)}</strong>
-            <p>${escapeHTML(person.role)} • ${escapeHTML(person.location)}</p></div>
-            ${person.resumePath ? `<button class="mini-button" data-resume="${escapeHTML(person.resumePath)}">Resume</button>` : ""}
-          </div>
-          <p>${escapeHTML(person.email)} • ${escapeHTML(person.phone)}</p>
-          ${person.linkedin ? `<p><a href="${escapeHTML(person.linkedin)}" target="_blank" rel="noopener">LinkedIn profile</a></p>` : ""}
-          ${person.notes ? `<p>${escapeHTML(person.notes)}</p>` : ""}
-        </article>`;
-      }).join("");
-      document.querySelectorAll("[data-resume]").forEach(button => button.addEventListener("click", async () => {
-        try {
-          const url = await getDownloadURL(ref(storage, button.dataset.resume));
-          open(url, "_blank", "noopener");
-        } catch (error) {
-          alert(error.message);
-        }
-      }));
-    }
-  ));
-
-  unsubscribers.push(onSnapshot(
-    query(collection(db, "employerRequests"), orderBy("createdAt", "desc"), limit(100)),
-    snapshot => {
-      $("employerList").innerHTML = snapshot.empty ? "No employer requests." : snapshot.docs.map(item => {
-        const request = item.data();
-        return `<article class="admin-item">
-          <strong>${escapeHTML(request.company)} — ${escapeHTML(request.role)}</strong>
-          <p>${escapeHTML(request.name)} • ${escapeHTML(request.email)} • ${escapeHTML(request.phone)}</p>
-          <p>${escapeHTML(request.details)}</p>
-        </article>`;
-      }).join("");
-    }
-  ));
-
-  unsubscribers.push(onSnapshot(
-    query(collection(db, "reviewSubmissions"), orderBy("createdAt", "desc"), limit(100)),
-    snapshot => {
-      const pending = snapshot.docs.filter(item => item.data().status !== "approved");
-      $("reviewList").innerHTML = pending.length ? pending.map(item => {
-        const review = item.data();
-        return `<article class="admin-item">
-          <strong>${escapeHTML(review.firstName)} ${escapeHTML(review.lastName)} — ${escapeHTML(review.rating)}★</strong>
-          <p>${escapeHTML(review.email)} • ${escapeHTML(review.phone)}</p>
-          <p>${escapeHTML(review.comment)}</p>
-          <div class="mini-actions">
-            ${Number(review.rating) >= 4 ? `<button class="mini-button approve" data-approve-review="${item.id}">Approve Publicly</button>` : ""}
-            <button class="mini-button danger" data-reject-review="${item.id}">Reject</button>
-          </div>
-        </article>`;
-      }).join("") : "No pending reviews.";
-
-      document.querySelectorAll("[data-approve-review]").forEach(button => button.addEventListener("click", async () => {
-        const source = snapshot.docs.find(item => item.id === button.dataset.approveReview);
-        if (!source) return;
-        const review = source.data();
-        await addDoc(collection(db, "reviews"), {
-          firstName: review.firstName,
-          lastInitial: (review.lastName || "").charAt(0).toUpperCase(),
-          rating: Number(review.rating),
-          comment: review.comment,
-          createdAt: serverTimestamp()
-        });
-        await updateDoc(doc(db, "reviewSubmissions", source.id), { status: "approved" });
-      }));
-
-      document.querySelectorAll("[data-reject-review]").forEach(button => button.addEventListener("click", async () => {
-        if (confirm("Reject and delete this review?")) {
-          await deleteDoc(doc(db, "reviewSubmissions", button.dataset.rejectReview));
-        }
-      }));
-    }
-  ));
+import { getFirestore,collection,addDoc,onSnapshot,query,orderBy,limit,deleteDoc,doc,updateDoc,serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+import { getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+import { getStorage,ref,getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
+import { firebaseConfig,ADMIN_EMAIL } from "./firebase-config.js";
+const app=initializeApp(firebaseConfig),db=getFirestore(app),auth=getAuth(app),storage=getStorage(app);
+const $=id=>document.getElementById(id),esc=(v="")=>String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+let unsubs=[],counts={jobs:0,candidates:0,employers:0,reviews:0};
+$("loginBtn").addEventListener("click",async()=>{try{$("loginMessage").textContent="Signing in…";const c=await signInWithEmailAndPassword(auth,$("adminEmail").value.trim(),$("adminPass").value);if(c.user.email?.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){await signOut(auth);throw new Error("This account is not authorized.")}}catch(e){$("loginMessage").textContent=e.message.replace("Firebase: ","")}});
+$("adminPass").addEventListener("keydown",e=>{if(e.key==="Enter")$("loginBtn").click()});$("logoutBtn").addEventListener("click",()=>signOut(auth));
+document.querySelectorAll("[data-admin-tab]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-admin-tab]").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".admin-tab").forEach(x=>x.classList.toggle("active",x.id===`admin-${b.dataset.adminTab}`))}));
+onAuthStateChanged(auth,user=>{const ok=user?.email?.toLowerCase()===ADMIN_EMAIL.toLowerCase();$("loginBox").style.display=ok?"none":"grid";$("dashboard").style.display=ok?"grid":"none";$("adminIdentity").textContent=ok?user.email:"";unsubs.forEach(f=>f());unsubs=[];if(ok)subscribe()});
+$("jobForm").addEventListener("submit",async e=>{e.preventDefault();const f=e.currentTarget,v=Object.fromEntries(new FormData(f).entries());$("jobMessage").textContent="Publishing…";try{await addDoc(collection(db,"jobs"),{title:v.title.trim(),location:v.location.trim(),type:v.type,salary:v.salary.trim(),skills:v.skills.trim(),summary:v.summary.trim(),applyUrl:v.applyUrl.trim()||"candidate.html",createdAt:serverTimestamp()});f.reset();$("jobMessage").textContent="Job published successfully."}catch(err){$("jobMessage").textContent=err.message}});
+function updateStats(){$("statJobs").textContent=counts.jobs;$("statCandidates").textContent=counts.candidates;$("statEmployers").textContent=counts.employers;$("statReviews").textContent=counts.reviews;$("recentActivity").innerHTML=`<div class="admin-item"><strong>${counts.jobs} live jobs</strong><p>${counts.candidates} candidate profiles • ${counts.employers} employer requests • ${counts.reviews} pending reviews</p></div>`}
+function subscribe(){
+ unsubs.push(onSnapshot(query(collection(db,"jobs"),orderBy("createdAt","desc"),limit(100)),snap=>{counts.jobs=snap.size;updateStats();$("adminJobs").innerHTML=snap.empty?"No jobs posted.":snap.docs.map(d=>{const j=d.data();return`<div class="admin-item"><div class="admin-item-top"><div><strong>${esc(j.title)}</strong><p>${esc(j.location)} • ${esc(j.type)}</p></div><button class="mini-button danger" data-del-job="${d.id}">Delete</button></div><p>${esc(j.summary)}</p></div>`}).join("");document.querySelectorAll("[data-del-job]").forEach(b=>b.addEventListener("click",async()=>{if(confirm("Delete this job?"))await deleteDoc(doc(db,"jobs",b.dataset.delJob))}))}));
+ unsubs.push(onSnapshot(query(collection(db,"candidates"),orderBy("createdAt","desc"),limit(100)),snap=>{counts.candidates=snap.size;updateStats();$("candidateList").innerHTML=snap.empty?"No candidates.":snap.docs.map(d=>{const p=d.data();return`<div class="admin-item"><div class="admin-item-top"><div><strong>${esc(p.firstName)} ${esc(p.middleName)} ${esc(p.lastName)}</strong><p>${esc(p.role)} • ${esc(p.location)}</p></div>${p.resumePath?`<button class="mini-button" data-resume="${esc(p.resumePath)}">Resume</button>`:""}</div><p>${esc(p.email)} • ${esc(p.phone)}</p></div>`}).join("");document.querySelectorAll("[data-resume]").forEach(b=>b.addEventListener("click",async()=>{try{open(await getDownloadURL(ref(storage,b.dataset.resume)),"_blank","noopener")}catch(e){alert(e.message)}}))}));
+ unsubs.push(onSnapshot(query(collection(db,"employerRequests"),orderBy("createdAt","desc"),limit(100)),snap=>{counts.employers=snap.size;updateStats();$("employerList").innerHTML=snap.empty?"No requests.":snap.docs.map(d=>{const r=d.data();return`<div class="admin-item"><strong>${esc(r.company)} — ${esc(r.role)}</strong><p>${esc(r.name)} • ${esc(r.email)} • ${esc(r.phone)}</p><p>${esc(r.details)}</p></div>`}).join("")}));
+ unsubs.push(onSnapshot(query(collection(db,"reviewSubmissions"),orderBy("createdAt","desc"),limit(100)),snap=>{const pending=snap.docs.filter(d=>d.data().status!=="approved");counts.reviews=pending.length;updateStats();$("reviewList").innerHTML=pending.length?pending.map(d=>{const r=d.data();return`<div class="admin-item"><strong>${esc(r.firstName)} ${esc(r.lastName)} — ${esc(r.rating)}★</strong><p>${esc(r.comment)}</p><div><button class="mini-button approve" data-approve="${d.id}">Approve</button> <button class="mini-button danger" data-reject="${d.id}">Reject</button></div></div>`}).join(""):"No pending reviews.";document.querySelectorAll("[data-approve]").forEach(b=>b.addEventListener("click",async()=>{const src=snap.docs.find(d=>d.id===b.dataset.approve);if(!src)return;const r=src.data();await addDoc(collection(db,"reviews"),{firstName:r.firstName,lastInitial:(r.lastName||"").charAt(0).toUpperCase(),rating:Number(r.rating),comment:r.comment,createdAt:serverTimestamp()});await updateDoc(doc(db,"reviewSubmissions",src.id),{status:"approved"})}));document.querySelectorAll("[data-reject]").forEach(b=>b.addEventListener("click",async()=>{if(confirm("Reject this review?"))await deleteDoc(doc(db,"reviewSubmissions",b.dataset.reject))}))}))
 }
-
-document.querySelectorAll("[data-tab]").forEach(button => button.addEventListener("click", () => {
-  document.querySelectorAll("[data-tab]").forEach(item => item.classList.toggle("active", item === button));
-  document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.toggle("active", panel.id === `tab-${button.dataset.tab}`));
-}));

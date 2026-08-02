@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Technology Jobs | TicTech Staffing</title>
+  <meta name="description" content="Search current technology opportunities posted by TicTech Staffing.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage">
+  <header class="header solid">
+    <nav class="nav shell">
+      <a class="brand" href="index.html"><img src="assets/tictech-logo.png" alt="TicTech Staffing"></a>
+      <button class="menu-toggle" id="menuToggle" type="button">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a><a class="active" href="jobs.html">Jobs</a><a href="index.html#employers">Employers</a><a href="candidate.html">Candidates</a><a href="index.html#services">Services</a><a href="index.html#about">About Us</a><a href="index.html#contact">Contact</a>
+      </div>
+      <a class="button button-small" href="candidate.html">Get Started</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="jobs-hero">
+      <div class="jobs-orbit" aria-hidden="true"></div>
+      <div class="shell jobs-hero-inner">
+        <p class="eyebrow">Current Opportunities</p>
+        <h1>Find your dream job.</h1>
+        <p>Explore technology opportunities and submit your profile for current and future consideration.</p>
+        <div class="job-search large">
+          <label><span>⌕</span><input id="jobsSearch" placeholder="Job title, skill, keyword, or company"></label>
+          <label><span>⌖</span><input id="jobsLocation" placeholder="Location"></label>
+          <select id="jobsType"><option value="">All Categories</option><option>Contract</option><option>Contract-to-Hire</option><option>Full-Time</option></select>
+          <button class="button" id="searchJobsButton" type="button">Search Jobs</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section jobs-page-section">
+      <div class="shell jobs-page-layout">
+        <aside class="jobs-filter-panel">
+          <h3>Job Categories</h3>
+          <button class="filter-active" data-role-filter="" type="button">All Opportunities</button>
+          <button data-role-filter="support" type="button">IT Support</button>
+          <button data-role-filter="systems" type="button">Systems &amp; Infrastructure</button>
+          <button data-role-filter="cloud" type="button">Cloud &amp; DevOps</button>
+          <button data-role-filter="security" type="button">Cybersecurity</button>
+          <button data-role-filter="network" type="button">Network</button>
+          <button data-role-filter="broadcast" type="button">Broadcast IT</button>
+          <div class="alert-card"><span>✦</span><h4>Join Our Talent Network</h4><p>Submit your resume for future aligned roles.</p><a class="button button-small" href="candidate.html">Submit Profile</a></div>
+        </aside>
+        <div>
+          <div class="jobs-results-head"><div><h2>Live Technology Jobs</h2><p id="jobsResultCount">Loading opportunities…</p></div></div>
+          <div class="job-list" id="jobsList"><div class="loading-card">Connecting to live opportunities…</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="shell footer-layout"><img src="assets/tictech-logo.png" alt="TicTech Staffing"><div><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a></div><p>© 2020 TicTech Staffing.</p></div></footer>
+  <script type="module" src="jobs.js"></script>
+</body>
+</html>
