@@ -1,0 +1,21 @@
+TicTech Staffing V5.1 — AI Immersive Pro
+Build date: 2026-08-08
+
+Major upgrades:
+- Larger, cropped TicTech logo and cinematic desktop scaling
+- Enhanced live Three.js globe with data routes, pulsing beacons, orbit packets, latitude/longitude grid, and low-power safeguards
+- Site-wide neural particle field and pointer-reactive depth
+- 3D tilt and light-follow effects on premium cards
+- Scroll-reactive, generative ambient soundscape using the Web Audio API
+- Sound is user-controlled to comply with Chrome/Safari/Edge autoplay policies
+- Rebuilt candidate visual as a live Talent Signal Console (no flat operator illustration)
+- Rebuilt services, process, jobs, employer, AI, reviews, why-us, contact, and footer sections
+- Context-aware TicTech AI website assistant using live job data when available
+- Public approved reviews plus moderated review submission workflow
+- Improved job empty states so the page still looks premium with zero live postings
+- Cropped/optimized logo asset
+- Cache-busted CSS/JS references
+- Progressive enhancement: core content remains visible if an external module is unavailable
+- Improved candidate file-type handling for Safari/Chrome/Edge
+- Improved admin resume opening behavior
+- Mobile, tablet, desktop, reduced-motion, and low-power performance safeguards

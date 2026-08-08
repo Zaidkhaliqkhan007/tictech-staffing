@@ -1,24 +1,37 @@
-TICTECH STAFFING — V4 COMPLETE
+TICTECH STAFFING V5.1 — AI IMMERSIVE PRO
 
-UPLOAD
-1. Open the tictech-staffing GitHub repository.
-2. Confirm branch: main.
-3. Add file > Upload files.
-4. Upload every file and the complete assets folder from this package.
-5. Allow GitHub to overwrite matching files.
-6. Commit message: Deploy TicTech Staffing V4 Complete
-7. Wait for the GitHub Pages workflow to show a green check.
-8. Open https://tictechstaffing.com/?v=v4complete
-9. Hard refresh: Mac Command+Shift+R / Windows Ctrl+Shift+R.
+GITHUB UPLOAD — ONE SHOT
+1. Unzip the downloaded V5.1 ZIP.
+2. Open GitHub > Za idkhaliqkhan007 / tictech-staffing.
+3. Confirm the branch dropdown says: main
+4. Click: Add file > Upload files
+5. Open the unzipped TicTech_Staffing_V5_1_AI_IMMERSIVE_PRO folder.
+6. Select EVERY item inside that folder at the same time, including the entire assets folder.
+7. Drag the selection into GitHub. Do NOT open assets and upload its files separately.
+8. Confirm GitHub shows assets/ as a folder and lists the root files such as index.html, styles.css, app.js, experience.js, and three-scene.js.
+9. Commit directly to main.
+10. Commit message: Deploy TicTech Staffing V5.1 AI Immersive Pro
+11. Wait for the GitHub Pages deployment green check.
+12. Open: https://tictechstaffing.com/?v=5.1
+13. Hard refresh: Mac Command+Shift+R / Windows Ctrl+Shift+R
 
-FIREBASE
-- Publish firestore.rules in Firestore Database > Rules.
-- Publish storage.rules in Storage > Rules.
-- Confirm info@tictechstaffing.com exists under Authentication > Users.
-- Authorized domains: tictechstaffing.com, www.tictechstaffing.com, zaidkhaliqkhan007.github.io.
+IMPORTANT ABOUT SOUND
+Modern Chrome, Safari, Edge, iPhone, and Android browsers do not allow websites to start music automatically before user interaction. V5.1 follows that browser rule. Visitors use the Sound control in the header. After enabled, the generative ambient score responds to scrolling and section changes.
+
+AFTER DEPLOYMENT TEST
+- Header logo is clearly visible
+- 3D globe rotates and reacts smoothly
+- Sound On/Off works after a user click
+- Mobile navigation opens/closes
+- Live Jobs loads or shows the premium empty state
+- Candidate resume upload accepts PDF/DOC/DOCX up to 10 MB
+- Employer Request submits
+- AI Assistant opens and responds
+- Review submission goes to moderation
+- Admin login, job posting, candidate resumes, employer requests, and review moderation work
+
+FIREBASE RULES
+If the current rules have not already been published, copy/publish firestore.rules in Firestore > Rules and storage.rules in Storage > Rules.
 
 PRIVATE ADMIN
 https://tictechstaffing.com/admin.html
-
-TEST
-3D globe, mobile menu, jobs page, candidate upload, employer form, admin login, job posting, resume access, review moderation, AI assistant.

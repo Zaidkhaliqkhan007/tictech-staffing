@@ -6,23 +6,23 @@
   <title>Submit Your Profile | TicTech Staffing</title>
   <meta name="description" content="Submit your professional profile and resume to TicTech Staffing.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=5.1.0">
 </head>
-<body class="subpage">
-<header class="header solid"><nav class="nav shell"><a class="brand" href="index.html"><img src="assets/tictech-logo.png" alt="TicTech Staffing"></a><a class="button button-small" href="index.html">Back to Website</a></nav></header>
+<body class="subpage"><canvas class="neural-field" id="neuralField" aria-hidden="true"></canvas><div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+<header class="header solid"><nav class="nav shell"><a class="brand" href="index.html"><img src="assets/tictech-logo.png" alt="TicTech Staffing"></a><button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="sound-label">Sound Off</span></button><a class="button button-small" href="index.html">Back to Website</a></nav></header>
 <main>
-  <section class="profile-hero">
+  <section class="profile-hero" data-sound-zone="0">
     <div class="shell profile-hero-grid">
       <div><p class="eyebrow">Candidate Profile</p><h1>One profile.<br><span>More opportunity.</span></h1><p>Share your experience and resume for consideration for current and future technology roles.</p></div>
-      <div class="profile-card-preview">
+      <div class="profile-card-preview" data-tilt>
         <img src="assets/avatar-david.svg" alt="">
-        <div><strong>Technology Professional</strong><span>Nationwide Talent Network</span></div>
-        <div class="profile-score"><b>90%</b><small>Profile Complete</small></div>
+        <div><strong>Technology Professional</strong><span>Nationwide Talent Network</span><small>Secure profile + resume intake</small></div>
+        <div class="profile-score"><b>✓</b><small>Secure</small></div>
       </div>
     </div>
   </section>
-  <section class="section form-section"><div class="shell form-page-grid">
-    <div class="form-intro"><p class="eyebrow">Submit Your Profile</p><h2>Connect with future technology opportunities.</h2><ul><li>PDF and Word resumes accepted</li><li>Contract, contract-to-hire, and direct-hire roles</li><li>Secure Firebase Storage upload</li><li>Reviewed by TicTech Staffing</li></ul></div>
+  <section class="section form-section" data-sound-zone="1"><div class="shell form-page-grid">
+    <div class="form-intro"><p class="eyebrow">Submit Your Profile</p><h2>Connect with future technology opportunities.</h2><ul><li>PDF and Word resumes accepted</li><li>Contract, contract-to-hire, and direct-hire roles</li><li>Secure resume upload</li><li>Reviewed by TicTech Staffing</li></ul></div>
     <div class="form-card">
       <form id="candidateForm" class="candidate-form">
         <div class="form-grid two"><label>First Name<input name="firstName" required></label><label>Middle Name<input name="middleName" required placeholder="Enter N/A if not applicable"></label></div>
@@ -43,5 +43,5 @@
   </div></section>
 </main>
 <footer class="footer"><div class="shell footer-layout"><img src="assets/tictech-logo.png" alt="TicTech Staffing"><div><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a></div><p>© 2020 TicTech Staffing.</p></div></footer>
-<script type="module" src="candidate.js"></script>
+<script type="module" src="candidate.js?v=5.1.0"></script><script src="experience.js?v=5.1.0" defer></script>
 </body></html>
