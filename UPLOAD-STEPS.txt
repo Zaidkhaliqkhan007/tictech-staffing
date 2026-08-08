@@ -1,20 +1,24 @@
-TICTECH STAFFING — NEON V3
-
-This version replaces the previous V2 files.
+TICTECH STAFFING — V4 COMPLETE
 
 UPLOAD
-1. Open the tictech-staffing GitHub repository on the main branch.
-2. Add file > Upload files.
-3. Upload every file and the complete assets folder from this package.
-4. Commit message: Deploy TicTech Staffing Neon V3.
-5. Wait for GitHub Pages deployment to show a green check.
-6. Open https://tictechstaffing.com/?v=neon3 and hard refresh.
+1. Open the tictech-staffing GitHub repository.
+2. Confirm branch: main.
+3. Add file > Upload files.
+4. Upload every file and the complete assets folder from this package.
+5. Allow GitHub to overwrite matching files.
+6. Commit message: Deploy TicTech Staffing V4 Complete
+7. Wait for the GitHub Pages workflow to show a green check.
+8. Open https://tictechstaffing.com/?v=v4complete
+9. Hard refresh: Mac Command+Shift+R / Windows Ctrl+Shift+R.
 
 FIREBASE
-1. Publish firestore.rules under Firestore Database > Rules.
-2. Publish storage.rules under Storage > Rules.
-3. Confirm info@tictechstaffing.com exists under Authentication > Users.
-4. Add tictechstaffing.com and www.tictechstaffing.com under Authentication > Settings > Authorized domains.
+- Publish firestore.rules in Firestore Database > Rules.
+- Publish storage.rules in Storage > Rules.
+- Confirm info@tictechstaffing.com exists under Authentication > Users.
+- Authorized domains: tictechstaffing.com, www.tictechstaffing.com, zaidkhaliqkhan007.github.io.
 
-FORMSPREE
-Open firebase-config.js and replace YOUR_FORM_ID when ready.
+PRIVATE ADMIN
+https://tictechstaffing.com/admin.html
+
+TEST
+3D globe, mobile menu, jobs page, candidate upload, employer form, admin login, job posting, resume access, review moderation, AI assistant.
